@@ -22,7 +22,7 @@ public class EquipamentoController {
 
     //EXAMPLE: Paginado
     /*
-     * nessa rota é possivel filtrar 2 serviço por qualquer status especifico
+     * nessa rota é possivel filtrar por qualquer status especifico
      * a quantidade de itens desejado por pagina
      * e os itens de qual pagina deseja verificar
      * 
