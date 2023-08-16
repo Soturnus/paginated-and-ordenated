@@ -20,6 +20,14 @@ public class EquipamentoController {
     @Autowired
     private EquipamentoService equipamentoService;
 
+    //EXAMPLE: Paginado
+    /*
+     * nessa rota é possivel filtrar 2 serviço por qualquer status especifico
+     * a quantidade de itens desejado por pagina
+     * e os itens de qual pagina deseja verificar
+     * 
+     * localhost:8080/equipamentos/2?pagina=0&tamanhoPagina=10
+     */
     @GetMapping(value = "/{status}")
     public ResponseEntity<Page<Equipamento>> buscarEquipamentosPaginados(
     		@PathVariable Integer status,
@@ -29,6 +37,14 @@ public class EquipamentoController {
         return ResponseEntity.ok(equipamentos);
     }
     
+    //EXAMPLE: OrdenadoPeloStatus2
+    /*
+     * Aqui esta ordenando tudo pelo mais antigo,
+     * depois é feito um filtro para puxar todos os que tem status 2
+     * em seguida incluir os demais itens da lista (ordenados pelos mais antigos)
+     * 
+     * localhost:8080/equipamentos/status2
+     */
     @GetMapping("/status2")
     public ResponseEntity<List<Equipamento>> buscarPorStatus2(){
     	
