@@ -28,6 +28,8 @@ public class EquipamentoService {
     public List<Equipamento> buscarTodosStatus2(){
     	List<Equipamento> equipamentos = equipamentoRepository.findAll();
     	
+    	ordenarPorDataMaisAntiga(equipamentos);
+    	
     	Collections.sort(equipamentos, new Comparator<Equipamento>() {
             @Override
             public int compare(Equipamento item1, Equipamento item2) {
@@ -49,4 +51,11 @@ public class EquipamentoService {
         
 		return equipamentosOrdenados;
     }
+    
+    private static List<Equipamento> ordenarPorDataMaisAntiga(List<Equipamento> equipamento) {
+        Collections.sort(equipamento, (equipamento1, equipamento2) -> 
+        equipamento1.getDtMovimento().compareTo(equipamento2.getDtMovimento()));
+        return equipamento;
+    }
+    
 }
